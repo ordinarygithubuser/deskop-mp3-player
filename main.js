@@ -14,14 +14,14 @@ app.on('ready', () => {
     mainWindow = new BrowserWindow({
         'frame': false,
         'width': 1200,
-        'height': 800,
+        'height': 600,
         'min-width': 1200,
         'min-height': 600
     });
 
     mainWindow.loadURL('file://' + __dirname + '/index.html');
-    mainWindow.webContents.openDevTools();
-    //mainWindow.setMenu(null);
+    mainWindow.setMenu(null);
+    //mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', () => mainWindow = null);
 });
