@@ -1,0 +1,360 @@
+@import "./base.scss";
+
+.app {
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    background: url('../img/bg.jpg') no-repeat left bottom;
+    background-size: 300px 400px;
+    -webkit-filter: invert(1) blur(1px);
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: column nowrap;
+  overflow: hidden;
+}
+
+.history {
+  -webkit-app-region: drag;
+  display: flex;
+  flex: 1;
+  min-height: 26px;
+  max-height: 26px;
+  flex-flow: row nowrap;
+  background: rgb(225, 225, 225);
+
+  li {
+    -webkit-app-region: no-drag;
+    font-size: 12px;
+    display: inline-flex;
+    padding: 0;
+
+    label {
+      padding: 4px 5px;
+    }
+
+    i {
+      font-size: 12px;
+      min-width: 10px;
+      line-height: 26px;
+      margin: 0;
+      padding-left: 5px;
+      padding-right: 5px;
+      background: rgb(225, 225, 225);
+    }
+
+    &:first-of-type i {
+      display: none;
+    }
+    
+    &:last-of-type {
+      background: rgb(120, 120, 120);
+      color: white;
+      cursor: default;
+    }
+
+    &:hover i {
+      color: rgb(91, 91, 91);
+    }
+  }
+}
+
+.browser {
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 300px;
+  max-width: 300px;
+  border-right: 1px solid rgb(225, 225, 225);
+
+  .search {
+    display: flex;
+    flex: 1;
+    min-height: 60px;
+    max-height: 60px;
+    padding: 16px 10px;
+
+    label {
+      height: 30px;
+      line-height: 30px;
+      width: 60px;
+    }
+
+    input {
+      width: 215px;
+      background: transparent;
+    }
+  }
+
+  .files {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    flex-flow: column nowrap;
+
+    li {
+      display: flex;
+      min-height: 32px;
+      flex-flow: row nowrap;
+
+      label {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 16px 10px;
+  min-height: 60px;
+  max-height: 60px;
+
+  label {
+    height: 30px;
+    line-height: 30px;
+    width: 60px;
+  }
+
+  select {
+    width: 200px;
+  }
+
+  i {
+    font-size: 34px;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    text-align: center;
+    padding-left: 10px;
+
+    &:hover {
+      color: rgb(22, 110, 213);
+      cursor: pointer;
+    }
+  }
+
+  .playlists {
+    display: flex;
+    max-height: 30px;
+    width: 320px;
+
+    i {
+      margin-top: 2px;
+      margin-left: 0;
+      font-size: 28px;
+    }
+  }
+
+  .track {
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .sound {
+    display: flex;
+    flex-flow: row nowrap;
+    text-align: right;
+    width: 240px;
+
+    input[type=range] {
+      -webkit-appearance: none;
+      flex: 1;
+      margin: 5px 0;
+      padding-bottom: 5px;
+      background: none;
+    }
+
+    input[type=range]:focus {
+      outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 3px;
+      cursor: pointer;
+      box-shadow: 2px 2px 2px #c5c5c5, 0 0 2px #d2d2d2;
+      background: #474747;
+      border-radius: 25px;
+      border: 1.1px solid #474747;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      box-shadow: 2px 2px 1px #c5c5c5, 0 0 2px #d2d2d2;
+      border: 0 solid #474747;
+      height: 13px;
+      width: 13px;
+      border-radius: 13px;
+      background: #166ed5;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -6.1px;
+    }
+
+    input[type=range]:focus::-webkit-slider-runnable-track {
+      background: #545454;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      margin: 5px 0;
+    }
+    
+    input[type=range]:focus {
+      outline: none;
+    }
+    
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 3px;
+      cursor: pointer;
+      box-shadow: 2px 2px 2px #c5c5c5, 0 0 2px #d2d2d2;
+      background: #474747;
+      border-radius: 25px;
+      border: 1px solid #474747;
+    }
+    
+    input[type=range]::-webkit-slider-thumb {
+      box-shadow: 2px 2px 3px #c5c5c5, 0 0 4px #d2d2d2;
+      border: 0 solid #474747;
+      height: 13px;
+      width: 13px;
+      border-radius: 13px;
+      background: #166ed5;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -6px;
+    }
+    
+    input[type=range]:focus::-webkit-slider-runnable-track {
+      background: #545454;
+    }
+  }
+}
+
+.playlist {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+
+  .header-container {
+    display: flex;
+    flex: 1;
+    position: relative;
+    padding-top: 28px;
+    background: rgba(230, 230, 230, 1);
+  }
+
+  .table-container {
+    overflow-y: auto;
+    height: inherit;
+    background: white;
+  }
+
+  table {
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+
+    thead {
+      width: 100%;
+
+      th {
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 0;
+        visibility: hidden;
+        white-space: nowrap;
+
+        div {
+          font-size: 13px;
+          visibility: visible;
+          position: absolute;
+          top: 0;
+          padding: 5px 0;
+          line-height: normal;
+        }
+      }
+    }
+
+    tbody {
+      height: 100%;
+
+      tr {
+        max-height: 40px;
+
+        &.active td {
+          background: rgb(120, 120, 120);
+          color: white;
+          cursor: default;
+        }
+
+        &:nth-child(even) {
+          background: rgba(245, 245, 245, 1);
+        }
+
+        &:hover {
+          background-image: linear-gradient(to bottom, rgb(27, 135, 227) 2%, rgb(22, 110, 213) 98%);
+          cursor: pointer;
+
+          td {
+            color: white;
+          }
+        }
+      }
+    }
+
+    td, th {
+      text-align: left;
+      padding: 4px 9px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
+      &:nth-child(1) {
+        min-width: 30%;
+      }
+
+      &:nth-child(2) {
+        width: 25%;
+      }
+
+      &:nth-child(3) {
+        width: 19%;
+      }
+
+      &:nth-child(4) {
+        width: 19%;
+      }
+
+      &:nth-child(5) {
+        width: 7%;
+      }
+    }
+  }
+}
