@@ -8,12 +8,15 @@ const getIndex = (songs, song) => {
 };
 
 export default ({ on, persist, load }) => {
-    const setSong = (playlist, song, offset, update, persist) => {
+    const setSong = ({ playlist, song, controls }, offset, update, persist) => {
         const index = getIndex(playlist.songs, song) + offset;
 
         if (index > -1 && index < playlist.songs.length) {
             update({ song: playlist.songs[index] });
             persist('song');
+        } else if (index == playlist.songs.length) {
+            controls.playing = false;
+            update({ song: playlist.songs[0], controls });
         }
     };
 
@@ -46,16 +49,11 @@ export default ({ on, persist, load }) => {
         persist('controls');
     });
 
-    on(Actions.Prev, (data, { song, playlist }, update) => {
-        if (playlist && song) {
-            setSong(playlist, song, -1, update, persist);
-        }
+    on(Actions.Prev, (data, state, update) => {
+        if (state.song) setSong(state -1, update, persist);
     });
 
-
-    on(Actions.Next, (data, { song, playlist }, update) => {
-        if (playlist && song) {
-            setSong(playlist, song, 1, update, persist);
-        }
+    on(Actions.Next, (data, state, update) => {
+        if (state.song) setSong(state, 1, update, persist);
     });
 };

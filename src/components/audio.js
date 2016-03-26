@@ -13,6 +13,7 @@ export default class AudioPlayer extends React.Component {
 
         this.state.audio.volume = controls.volume;
         this.state.audio.muted = controls.muted;
+        this.state.audio.onended = this.props.onEnd;
         if (controls.playing && song) {
             this.state.audio.play();
         }
@@ -28,6 +29,7 @@ export default class AudioPlayer extends React.Component {
             audio = new Audio(path);
             audio.volume = controls.volume;
             audio.muted = controls.muted;
+            audio.onended = this.props.onEnd;
             if (controls.playing) audio.play();
             this.setState({ audio })
         } else if (controls.playing && !prev.controls.playing) {

@@ -141,15 +141,16 @@
 
   select {
     width: 200px;
+    margin-right: 10px;
   }
 
   i {
     font-size: 34px;
     width: 30px;
     height: 30px;
-    margin: 0 10px;
+    margin: 0 5px;
     text-align: center;
-    padding-left: 10px;
+    padding-right: 10px;
 
     &:hover {
       color: rgb(22, 110, 213);
@@ -160,7 +161,7 @@
   .playlists {
     display: flex;
     max-height: 30px;
-    width: 320px;
+    width: 300px;
 
     i {
       margin-top: 2px;
@@ -170,8 +171,14 @@
   }
 
   .track {
-    text-align: center;
-    flex-grow: 1;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    .fa-chevron-circle-right {
+      padding-right: 0;
+    }
   }
 
   .sound {
@@ -349,11 +356,11 @@
       }
 
       &:nth-child(4) {
-        width: 19%;
+        width: 18%;
       }
 
       &:nth-child(5) {
-        width: 7%;
+        width: 8%;
       }
     }
   }

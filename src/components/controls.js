@@ -20,7 +20,11 @@ export default ({ playlists, playlist, controls, song }) => {
     const muteIcon = controls.muted ? 'off' : 'up';
 
     return <div className="controls">
-        <AudioPlayer controls={controls} song={song} />
+        <AudioPlayer
+            song={song}
+            controls={controls}
+            onEnd={Actions.Next}
+        />
         <div className="playlists">
             <label>Playlist</label>
             <select value={playlist.id} onChange={setPlaylist}>

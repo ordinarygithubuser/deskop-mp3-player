@@ -27,7 +27,7 @@ export default ({ on, load, persist }) => {
             const files = read(file.path);
 
             update({ history, files, filter: '' });
-            persist('history', 'files');
+            persist('history', 'files', 'filter');
         }
     };
 
